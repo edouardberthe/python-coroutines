@@ -1,6 +1,8 @@
 import time
-
 from typing import Iterator
+
+from constants import file_name
+
 
 def follow(file) -> Iterator[str]:
     file.seek(0, 2)
@@ -12,8 +14,8 @@ def follow(file) -> Iterator[str]:
             yield line
 
 
-file_name = "messages.log"
-with open(file_name) as file:
-    f = follow(file)
-    for line in f:
-        print(line, end="")
+if __name__ == "__main__":
+    with open(file_name) as file:
+        f = follow(file)
+        for line in f:
+            print(line, end="")

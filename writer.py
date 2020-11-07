@@ -1,7 +1,9 @@
 import time
 import random as rd
 
-file_name = "messages.log"
+from constants import file_name
+
+
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 symbols = " "
 n = len(alphabet)
@@ -11,4 +13,4 @@ while True:
         message = rd.choice(alphabet).upper() + "".join(rd.choice(alphabet + symbols) for _ in range(rd.randint(5, 30)))
         print(f"Printing message {message}")
         file.write(f"{message}\n")
-        time.sleep(2)
+    time.sleep(rd.randint(500, 3000) / 1000)
